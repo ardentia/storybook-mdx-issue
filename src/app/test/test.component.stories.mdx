@@ -1,23 +1,20 @@
-import { Story, Meta, moduleMetadata } from '@storybook/angular';
-import { TestComponent } from './test.component';
+import { Meta, Story, Canvas } from "@storybook/addon-docs";
+import { TestComponent } from "./test.component";
 
-export default {
-  title: 'Preview/Test',
-  component: TestComponent,
-  decorators: [
-    moduleMetadata({
-      declarations: [TestComponent]
-    }),
-  ],
-} as Meta;
+<Meta title="Preview/Test" component={TestComponent} />
 
-# test preview
+# TestComponent
 
-const Template: Story<TestComponent> = (args) => ({
-  template: `
-    <app-test></app-test>
-    `,
-  props: args
-});
+Test component running inside `MDX` and Canvas with the latest Storybook stable release
 
-export const Default = Template.bind({});
+export const Template = (args) => ({ props: args });
+
+<Canvas withToolbar>
+  <Story name="test-component-with-canvas">{Template.bind({})}</Story>
+</Canvas>
+
+## Another Test
+
+Test component running inside `MDX` without `Canvas` block with the latest Storybook stable release
+
+<Story name="test-component-without-canvas">{Template.bind({})}</Story>
