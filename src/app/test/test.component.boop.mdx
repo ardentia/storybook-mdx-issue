@@ -1,0 +1,23 @@
+import { Story, Meta, moduleMetadata } from '@storybook/angular';
+import { TestComponent } from './test.component';
+
+export default {
+  title: 'Preview/Test',
+  component: TestComponent,
+  decorators: [
+    moduleMetadata({
+      declarations: [TestComponent]
+    }),
+  ],
+} as Meta;
+
+# test preview
+
+const Template: Story<TestComponent> = (args) => ({
+  template: `
+    <app-test></app-test>
+    `,
+  props: args
+});
+
+export const Default = Template.bind({});
